@@ -1,0 +1,15 @@
+.navbar-form input, .form-inline input {
+    width: auto;
+}
+
+body {
+    font-family: Arial;
+    padding-top: 50px;
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #ededed;
+}
