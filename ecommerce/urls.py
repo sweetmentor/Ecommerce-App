@@ -19,6 +19,7 @@ from accounts import urls as accounts_urls
 from product import urls as products_urls
 from django.views.static import serve
 from django.conf import settings
+from django.http import HttpResponse
 
 
 
@@ -26,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include(accounts_urls)),
     path('', include(products_urls)),
+    
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
 ]

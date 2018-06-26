@@ -1,9 +1,52 @@
-{% extends 'base.html' %}
-{% load static from staticfiles %}
+{% extends 'base.html' %} {
+% load static from staticfiles %} 
 {% block content %}
+{% for product in products %}  
+
+<table class="table">
+        <thead>
+        <tr>
+            
+            <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ product.image }}"></img></td>  
+            
+            <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                        {% csrf_token %}
+                <button type="submit" value="Add To Cart">Add to Cart</button>
+            </form>
+
+        </tr>
+        <tr>
+            
+            <td>Name: {{ product.name }}</td>
+        </tr>
+         <tr>   
+            <td>Description: {{ product.description }}</td>
+        </tr>
+        <tr>
+            <td>Price: £ {{ product.price }}</td>
+        </tr>
+        <tr>
+            <td>Brand: {{ product.brand }}</td>
+        </tr>
+        
+        
+        </thead>
+        
+  
+
+ 
+ {% endfor %}     
 
 
-<h1>This my products page</h1>
+ {% endblock %}
 
 
-{% endblock %}
+
+
+
+
+    
+    
+    
+    
+    
