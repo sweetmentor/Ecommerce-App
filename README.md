@@ -1,1 +1,1 @@
-[![Build Status](https://github.com/sweetmentor/Ecommerce-App.svg)](https://travis-ci.org/sweetmentor/Ecommerce-App)
+[![Build Status](https://travis-ci.org/sweetmentor/Ecommerce-App.svg)](https://travis-ci.org/sweetmentor/Ecommerce-App)
