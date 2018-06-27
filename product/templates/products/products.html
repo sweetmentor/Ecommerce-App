@@ -1,53 +1,43 @@
 {% extends 'base.html' %} {
 % load static from staticfiles %} 
 {% block content %}
-{% for product in products %}  
+  
+
 
 <table class="table">
-        <thead>
-        <tr>
-            
-            <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ product.image }}"></img></td>  
-            
+<thead>
+    <tr>
+        <th></th>    
+        <th>Name</th>    
+        <th>Description</th>    
+        <th>Price</th>
+        <th>Brand</th>
+        <th></th>
+  </tr>
+</thead>
+<tbody>
+    {% for product in products %}
+<tr>
+    <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ product.image }}"></img></td> 
+    <td>{{ product.name }}</td>
+    <td>{{ product.description }}</td>
+    <td>€ {{ product.price }}</td>
+    <td>{{ product.brand }}</td>
+    <td>
             <form method="POST" action="{% url 'add_to_cart'%}">
                         {% csrf_token %} 
                         <input type="hidden" name="product_id" value="{{product.id}}"/>
                 <button type="submit" value="Add To Cart">Add to Cart</button>
             </form>
-
-        </tr>
-        <tr>
-            
-            <td>Name: {{ product.name }}</td>
-        </tr>
-         <tr>   
-            <td>Description: {{ product.description }}</td>
-        </tr>
-        <tr>
-            <td>Price: £ {{ product.price }}</td>
-        </tr>
-        <tr>
-            <td>Brand: {{ product.brand }}</td>
-        </tr>
-        
-        
-        </thead>
-  </table>    
-  
-
- 
- {% endfor %}     
+        </td>
+    
+</tr> 
+{% endfor %}
+</tbody>
 
 
  {% endblock %}
-
-
-
-
-
-
-    
-    
-    
-    
-    
+        
+        
+        
+ 
