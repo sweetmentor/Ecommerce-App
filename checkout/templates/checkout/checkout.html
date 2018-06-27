@@ -3,7 +3,6 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<h1>View Cart</h1>
 <table class="table">
     <thead>
         <tr>
@@ -45,61 +44,30 @@
         </tr>
     </tbody>
 </table>
-<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
-
-{% endblock content %}
-
-    
-    
-    
 
 
 
+    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+        
+    <legend>Payment Details</legend>
 
+    <div id="credit-card-errors" style="display:none">
+      <div class="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
 
+    <div class="form-group col-md-6">
+        {{ order_form|as_bootstrap }}
+    </div>
 
+    <div class="form-group col-md-6">
+        {{ payment_form|as_bootstrap }}
+    </div>
 
+    {% csrf_token %}
+    <div class="form-group col-md-12">
+      <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+    </div>
 
+    </form>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
-
-              
-                
+{% endblock %}
