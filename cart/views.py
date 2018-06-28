@@ -25,13 +25,20 @@ def view_cart(request):
     return render(request, "cart/cart.html", {'cart_items': cart_items, 'total': cart_total})
     
     
-def remove_from_cart(request):
-     id = request.POST['product_id']
-     product = get_object_or_404(Product, pk=id)
-     cart = request.session.get('cart', {})
-     del cart[id]
-     request.session['cart'] = cart
-     return  redirect('view_cart')
+
+
+def remove_from_cart(request): 
+    id = request.POST['product_id']
+    product = get_object_or_404(Product, pk=id)
+    cart = request.session.get('cart', {})
+    if id in cart:
+        # Subtract 1 from the quantity
+        cart[id] -= 1
+        # If the quantity is now 0, then delete the item
+        if cart[id] == 0:
+            del cart[id]
+    request.session['cart'] = cart
+    return redirect('view_cart')
 
 
 
