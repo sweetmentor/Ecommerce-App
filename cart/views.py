@@ -42,7 +42,7 @@ def add_to_cart(request):
     
     #  Redirect somewhere
     
-    return HttpResponse(cart[id])
+    return redirect("/")
   
 
 

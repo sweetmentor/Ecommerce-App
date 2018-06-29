@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+
+
+{% if product %}
+<!--books is list here so pick each element using for loop -->
+{% for product in products %}   
+    <a href="{% url 'get_products' pk=product.id %}">
+    <!--Upon successful search book image with hyperlink appears -->
+    <img src="{{ MEDIA_URL }}{{ product.image }}" alt="No Image"></a>
+    <p>{{ product.name }}</p>
+    <p>€ {{ product.price }}</p>   
+{% endfor %}
+{% endif %}

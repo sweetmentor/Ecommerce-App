@@ -4,6 +4,7 @@
 
 {% block content %}
 <h1>View Cart</h1>
+{% if cart_items|length > 0 %}
 <table class="table">
     <thead>
         <tr>
@@ -16,6 +17,7 @@
         </tr>
     </thead>
     <tbody>
+
 
 {% for item in cart_items %}
 
@@ -46,6 +48,11 @@
     </tbody>
 </table>
 <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
+{% else %}
+<h1>Your Cart is empty</h1>
+{% endif %}
+
+
 
 {% endblock content %}
 
