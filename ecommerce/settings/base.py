@@ -120,3 +120,5 @@ STRIPE_SECRET = os.environ.get('STRIPE_SECRET_KEY')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+

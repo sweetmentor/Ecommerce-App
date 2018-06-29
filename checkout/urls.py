@@ -3,7 +3,7 @@ from django.conf.urls import url
 from .views import checkout
 
 urlpatterns = [
-  path('checkout/', checkout, name='checkout')
+  path('', checkout, name='checkout')
   
   ]
 
